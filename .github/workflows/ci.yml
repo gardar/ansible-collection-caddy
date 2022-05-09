@@ -49,6 +49,7 @@ jobs:
     name: "Modules"
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version:
           - 2.7
@@ -116,7 +117,6 @@ jobs:
         run: |
           pip3 install --upgrade pip
           pip3 install ansible-base
-          pip3 install requests
 
       - name: Build and install collection
         run: |
