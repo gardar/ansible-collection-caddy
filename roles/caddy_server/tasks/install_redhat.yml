@@ -2,7 +2,10 @@
   dnf:
     name:
       - dnf-command(copr)
-      - python3-requests
+
+- name: Pip requirements are installed
+  pip:
+    name: requests
 
 - name: Caddy repository is enabled
   community.general.copr:
