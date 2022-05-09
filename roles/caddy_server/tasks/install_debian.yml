@@ -1,15 +1,12 @@
 ---
-- name: Package requirements are installed
-  apt:
+- name: Requirements are installed
+  package:
     name:
       - debian-keyring
       - debian-archive-keyring
       - apt-transport-https
+      - "{{ 'python3-requests' if ansible_python_version is version('3', '>=') else 'python-requests' }}"
     update_cache: yes
-
-- name: Pip requirements are installed
-  pip:
-    name: requests
 
 - name: Caddy repo key is installed
   apt_key:
@@ -24,6 +21,6 @@
     mode: "644"
 
 - name: Caddy is installed
-  apt:
+  package:
     name: caddy
     update_cache: yes
