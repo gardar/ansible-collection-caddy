@@ -68,8 +68,8 @@ platforms:
 provisioner:
   name: ansible
   config_options:
-    ssh_connection:
-      pipelining: yes
+    connection:
+      pipelining: true
     defaults:
       forks: 15
 
