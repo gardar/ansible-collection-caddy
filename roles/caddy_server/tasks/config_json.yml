@@ -1,3 +1,4 @@
+---
 - name: Caddyfile service is stopped and disabled
   service:
     name: caddy

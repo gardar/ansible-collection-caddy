@@ -1,3 +1,4 @@
+---
 - name: Caddyfile is present
   template:
     src: Caddyfile.j2
