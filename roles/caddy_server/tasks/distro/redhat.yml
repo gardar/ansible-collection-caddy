@@ -1,5 +1,7 @@
 ---
 - name: Caddy repository is enabled
-  community.general.copr:
-    name: "@caddy/caddy"
-    chroot: "epel-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}"
+  yum_repository:
+    name: caddy
+    baseurl: "{{ caddy_rpm_repo }}"
+    skip_if_unavailable: true
+    gpgkey: "{{ caddy_rpm_key }}"

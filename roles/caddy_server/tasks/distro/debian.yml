@@ -7,13 +7,9 @@
 
 - name: APT Key is stored in keyring
   ansible.builtin.apt_key:
-    url: https://dl.cloudsmith.io/public/caddy/stable/gpg.key
-    keyring: /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+    url: "{{ caddy_apt_key }}"
+    keyring: "{{ caddy_apt_keyring }}"
 
 - name: Caddy repository is enabled
-  ansible.builtin.get_url:
-    url: https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt
-    dest: /etc/apt/sources.list.d/caddy-stable.list
-    owner: root
-    group: root
-    mode: "644"
+  apt_repository:
+    repo: "deb [signed-by={{ caddy_apt_keyring }}] {{ caddy_apt_repo }}"
