@@ -1,12 +1,4 @@
 ---
-- name: Requirements are installed
-  ansible.builtin.package:
-    name:
-      - debian-keyring
-      - debian-archive-keyring
-      - apt-transport-https
-      - "{{ 'python3-requests' if ansible_python_version is version('3', '>=') else 'python-requests' }}"
-
 - name: Old apt-key trusted key is absent
   ansible.builtin.apt_key:
     id: 65760C51EDEA2017CEA2CA15155B6D79CA56EA34
@@ -25,8 +17,3 @@
     owner: root
     group: root
     mode: "644"
-
-- name: Caddy is installed
-  ansible.builtin.package:
-    name: caddy
-    update_cache: yes
