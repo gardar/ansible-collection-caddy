@@ -13,7 +13,7 @@ Alternatively, you can also configure caddy with a Caddyfile by passing it to th
   - Debian 10 or newer
   - A CentOS 8-compatible distribution like RockyLinux or AlmaLinux. RockyLinux is used for testing
 - Supported architectures: Anything supported by upstream caddy should work
-- This role requires root access. Make sure to run this role with `become: yes` or equivalent
+- This role requires root access. Make sure to run this role with `become: true` or equivalent
 
 ## Role Variables
 
@@ -46,7 +46,7 @@ Alternatively, you can also configure caddy with a Caddyfile by passing it to th
   hosts: all
   roles:
     - role: maxhoesel.caddy.caddy_server
-      become: yes
+      become: true
       caddy_json_config:
         apps:
           http:
@@ -63,7 +63,7 @@ Alternatively, you can also configure caddy with a Caddyfile by passing it to th
   hosts
   roles:
     - role: maxhoesel.caddy.caddy_server
-      become: yes
+      become: true
       vars:
         caddy_caddyfile: |
             localhost:80

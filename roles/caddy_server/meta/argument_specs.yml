@@ -6,7 +6,7 @@ argument_specs:
       caddy_apply_config:
         description: Whether to apply the given caddy configuration. Set to false if you only want to install Caddy.
         type: bool
-        default: yes
+        default: true
       caddy_config_mode:
         description: Whether to use the JSON API or a Caddyfile for configuration
         type: str

@@ -15,7 +15,7 @@
     - name: Load site
       uri:
         url: "http://localhost:80"
-        return_content: yes
+        return_content: true
       register: caddy_site
 
     - name: Verify that site got served
