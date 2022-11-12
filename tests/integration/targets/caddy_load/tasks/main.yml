@@ -1,3 +1,4 @@
+---
 - name: Try to load basic configuration
   maxhoesel.caddy.caddy_load:
     config: "{{ original_config }}"
