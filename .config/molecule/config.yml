@@ -124,3 +124,25 @@ platforms:
     privileged: true
     override_command: false
     pre_build_image: true
+
+  - name: caddy-archlinux
+    groups:
+      - archlinux
+      - ca
+    image: "carlodepieri/docker-archlinux-ansible"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    override_command: false
+    pre_build_image: true
+
+  - name: caddy-alpine
+    groups:
+      - alpine
+      - ca
+    image: "mesaguy/ansible-molecule-alpine"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    override_command: false
+    pre_build_image: true
