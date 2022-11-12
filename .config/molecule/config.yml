@@ -48,6 +48,17 @@ platforms:
   # - The containers run as privileged containers so that we can
   #   use systemd functionality. This *should* be possible with unpriliged
   #   containers as well, but is quite the headache.
+  - name: caddy-ubuntu-18
+    groups:
+      - ubuntu
+      - ca
+    image: "geerlingguy/docker-ubuntu1804-ansible"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    override_command: false
+    pre_build_image: true
+
   - name: caddy-ubuntu-20
     groups:
       - ubuntu
@@ -59,11 +70,11 @@ platforms:
     override_command: false
     pre_build_image: true
 
-  - name: caddy-ubuntu-18
+  - name: caddy-ubuntu-22
     groups:
       - ubuntu
       - ca
-    image: "geerlingguy/docker-ubuntu1804-ansible"
+    image: "geerlingguy/docker-ubuntu2204-ansible"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
@@ -97,6 +108,17 @@ platforms:
       - rockylinux
       - ca
     image: "geerlingguy/docker-rockylinux8-ansible"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    override_command: false
+    pre_build_image: true
+
+  - name: caddy-rockylinux-9
+    groups:
+      - rockylinux
+      - ca
+    image: "geerlingguy/docker-rockylinux9-ansible"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
