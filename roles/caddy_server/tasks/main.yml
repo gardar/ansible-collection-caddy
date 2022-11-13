@@ -19,6 +19,11 @@
 - name: Perform Caddy install
   include_tasks: "install.yml"
 
+- name: Gather service facts
+  service_facts:
+
 - name: Configure Caddy
   include_tasks: "config_{{ caddy_config_mode }}.yml"
-  when: caddy_apply_config
+  when:
+    - caddy_apply_config
+    - ansible_facts.services contains _caddy_service
