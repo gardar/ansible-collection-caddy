@@ -26,4 +26,4 @@
   include_tasks: "config_{{ caddy_config_mode }}.yml"
   when:
     - caddy_apply_config
-    - ansible_facts.services contains _caddy_service
+    - ansible_facts.services is search(_caddy_service)
