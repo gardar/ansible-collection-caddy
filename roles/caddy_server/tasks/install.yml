@@ -2,7 +2,7 @@
 - name: Requirements are installed
   package:
     name: "{{ _package_requirements }}"
-  when: (_package_requirements)
+  when: (_package_requirements | default() )
 
 - name: Import distro-specific tasks
   include_tasks: "{{ distrotask }}"
