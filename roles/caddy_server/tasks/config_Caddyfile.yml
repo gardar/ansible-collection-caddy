@@ -7,15 +7,3 @@
     group: root
     mode: "644"
   notify: Reload Caddy
-
-- name: Caddy JSON/API service is stopped and disabled
-  service:
-    name: caddy-api
-    state: stopped
-    enabled: false
-
-- name: Caddyfile service is started and enabled
-  service:
-    name: caddy
-    state: started
-    enabled: true

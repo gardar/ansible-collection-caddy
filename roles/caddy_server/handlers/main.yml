@@ -1,5 +1,5 @@
 ---
 - name: Reload Caddy
   service:
-    name: caddy
+    name: "{{ _caddy_service_caddyfile }}"
     state: reloaded

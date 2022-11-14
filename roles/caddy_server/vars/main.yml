@@ -1,3 +1,4 @@
 ---
 caddy_caddyfile_dest: /etc/caddy/Caddyfile
-_caddy_service: "{{ 'caddy-api' if caddy_config_mode == 'json' else 'caddy' }}"
+_caddy_service_json: caddy-api
+_caddy_service_caddyfile: caddy
