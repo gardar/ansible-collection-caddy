@@ -1,4 +1,17 @@
 ---
+- name: Caddy is running
+  service:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    enabled: "{{ item.enabled }}"
+  loop:
+    - name: "{{ (caddy_config_mode == 'json') | ternary(_caddy_service_json, _caddy_service_caddyfile) }}"
+      state: started
+      enabled: true
+    - name: "{{ (caddy_config_mode == 'json') | ternary(_caddy_service_caddyfile, _caddy_service_json) }}"
+      state: stopped
+      enabled: false
+
 - name: JSON configuration is applied
   maxhoesel.caddy.caddy_load:
     config: "{{ caddy_json_config }}"

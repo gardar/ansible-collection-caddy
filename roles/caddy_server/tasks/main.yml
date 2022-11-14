@@ -19,6 +19,9 @@
 - name: Perform Caddy install
   include_tasks: "install.yml"
 
+- name: Run handlers
+  meta: flush_handlers
+
 - name: Gather service facts
   service_facts:
 
